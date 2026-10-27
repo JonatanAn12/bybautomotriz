@@ -10,9 +10,9 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Redirect www to non-www (IMPORTANTE)
-  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  RewriteRule ^(.*)$ https://$1/$1 [R=301,L]
+  # Redirect non-www to www (IMPORTANTE)
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
 
   # Handle Vue Router - redirect all requests to index.html
   # EXCEPT sitemap.xml, robots.txt, and actual files
