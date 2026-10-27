@@ -475,7 +475,6 @@ const handlePrivacyAccept = () => {
   padding: 0.75rem 1.5rem !important;
   box-sizing: border-box !important;
 
-  // El botón debe ser flex con gap para mantener icono y texto juntos
   &.p-button {
     width: 100% !important;
     align-items: center !important;
