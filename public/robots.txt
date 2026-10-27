@@ -1,0 +1,20 @@
+# robots.txt para B&B Automotriz
+# https://bybautomotriz.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://bybautomotriz.com/sitemap.xml
+
+# Crawl-delay (opcional, para no sobrecargar el servidor)
+Crawl-delay: 1
+
+# Permitir acceso a recursos importantes
+Allow: /src/img/
+Allow: /src/styles/
+
+# Bloquear acceso a archivos de desarrollo (si existen)
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/maps/

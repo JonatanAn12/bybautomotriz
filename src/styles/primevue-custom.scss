@@ -1,0 +1,1003 @@
+@use './variables.scss' as *;
+
+// Estilos personalizados para componentes PrimeVue
+
+// Buttons
+.p-button {
+  font-family: $font-family-base !important;
+  font-weight: 600 !important;
+  border-radius: $border-radius !important;
+  transition: $transition-base !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: $font-size-base !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  position: relative !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+
+  // Ocultar tooltip de tamaño
+  &::after,
+  &::before,
+  [data-pc-section='loadingicon']::after {
+    display: none !important;
+  }
+
+  .p-button-loading-icon::after {
+    display: none !important;
+  }
+
+  // Prevenir expansión - aplicar a todos los estados
+  * {
+    flex-shrink: 0 !important;
+  }
+
+  .p-button-label {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .p-button-icon {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  // Asegurar centrado en todos los estados
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  &.p-button-primary {
+    background: $primary-blue !important;
+    color: $white !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:hover {
+      background: $dark-blue !important;
+      transform: translateY(-2px) !important;
+      box-shadow: $shadow-md !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.98) !important;
+      box-shadow: none !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2) !important;
+    }
+  }
+
+  &.p-button-secondary {
+    background: $medium-gray !important;
+    color: $white !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:hover {
+      background: $black !important;
+      transform: translateY(-2px) !important;
+      box-shadow: $shadow-md !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.98) !important;
+      box-shadow: none !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+  }
+
+  &.p-button-success {
+    background: #25d366 !important;
+    color: $white !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:hover {
+      background: #1da851 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: $shadow-md !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.98) !important;
+      box-shadow: none !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    // Estilo especial para botones rounded success (WhatsApp)
+    &.p-button-rounded {
+      background: #25d366 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      &:enabled:hover {
+        background: #1da851 !important;
+      }
+
+      &:enabled:active {
+        background: #25d366 !important;
+      }
+    }
+  }
+
+  &.p-button-outlined {
+    border: 2px solid $white !important;
+    background: transparent !important;
+    color: $white !important;
+    border-radius: $border-radius-lg !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:hover {
+      background: $white !important;
+      color: $primary-blue !important;
+      transform: translateY(-2px) !important;
+      box-shadow: $shadow-md !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.98) !important;
+      box-shadow: none !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+  }
+
+  &.p-button-text {
+    background: transparent !important;
+    color: $primary-blue !important;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease !important;
+    transform: none !important;
+    box-sizing: border-box !important;
+
+    // Asegurar que icono y label estén juntos con gap
+    .p-button-icon {
+      margin: 0 !important;
+      flex-shrink: 0 !important;
+    }
+
+    .p-button-label {
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    &:enabled:hover {
+      background: $light-blue !important;
+      color: $dark-blue !important;
+      transform: none !important;
+      box-sizing: border-box !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.98) !important;
+      background: rgba(0, 102, 204, 0.2) !important;
+      box-sizing: border-box !important;
+    }
+
+    &:enabled:focus {
+      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2) !important;
+      transform: none !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  &.p-button-rounded {
+    border-radius: 50% !important;
+    padding: 0.75rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    .p-button-icon {
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .p-button-label {
+      display: none !important;
+    }
+
+    &:enabled:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: $shadow-md !important;
+      width: 3rem !important;
+      height: 3rem !important;
+      min-width: 3rem !important;
+      min-height: 3rem !important;
+      max-width: 3rem !important;
+      max-height: 3rem !important;
+    }
+
+    &:enabled:active {
+      transform: scale(0.95) !important;
+      box-shadow: none !important;
+      width: 3rem !important;
+      height: 3rem !important;
+      min-width: 3rem !important;
+      min-height: 3rem !important;
+      max-width: 3rem !important;
+      max-height: 3rem !important;
+    }
+
+    &:enabled:focus {
+      width: 3rem !important;
+      height: 3rem !important;
+      min-width: 3rem !important;
+      min-height: 3rem !important;
+      max-width: 3rem !important;
+      max-height: 3rem !important;
+    }
+  }
+
+  &.p-button-icon-only {
+    padding: 0.75rem !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:active {
+      transform: scale(0.95) !important;
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+  }
+
+  &.p-button-lg {
+    padding: 1rem 2rem !important;
+    font-size: $font-size-lg !important;
+    min-width: fit-content !important;
+    width: auto !important;
+
+    &:enabled:active,
+    &:enabled:hover,
+    &:enabled:focus {
+      min-width: fit-content !important;
+      width: auto !important;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+  }
+
+  // Prevenir expansión en cualquier estado
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible {
+    flex-shrink: 0 !important;
+
+    .p-button-label {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+
+// Card
+.p-card {
+  background: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow;
+
+  .p-card-header {
+    border-radius: $border-radius-lg $border-radius-lg 0 0;
+  }
+
+  .p-card-title {
+    font-weight: 700;
+    color: $black;
+  }
+
+  .p-card-content {
+    color: $gray;
+  }
+}
+
+// Input Text
+.p-inputtext {
+  font-family: $font-family-base;
+  border: 2px solid $border-gray;
+  border-radius: $border-radius;
+  padding: $spacing-sm $spacing-md;
+  transition: $transition-base;
+
+  &:enabled:hover {
+    border-color: $primary-blue;
+  }
+
+  &:enabled:focus {
+    outline: 0;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  }
+
+  &.p-invalid {
+    border-color: #ef4444;
+
+    &:enabled:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+// Textarea
+.p-inputtextarea {
+  font-family: $font-family-base;
+  border: 2px solid $border-gray;
+  border-radius: $border-radius;
+  padding: $spacing-sm $spacing-md;
+  transition: $transition-base;
+
+  &:enabled:hover {
+    border-color: $primary-blue;
+  }
+
+  &:enabled:focus {
+    outline: 0;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  }
+
+  &.p-invalid {
+    border-color: #ef4444;
+
+    &:enabled:focus {
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+}
+
+// Dropdown
+.p-dropdown {
+  border: 2px solid $border-gray;
+  border-radius: $border-radius;
+  transition: $transition-base;
+
+  &:not(.p-disabled):hover {
+    border-color: $primary-blue;
+  }
+
+  &:not(.p-disabled).p-focus {
+    outline: 0;
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+  }
+}
+
+.p-dropdown-panel {
+  border-radius: $border-radius;
+  box-shadow: $shadow-lg;
+
+  .p-dropdown-items {
+    .p-dropdown-item {
+      border-radius: $border-radius-sm;
+      transition: $transition-fast;
+
+      &:not(.p-highlight):not(.p-disabled):hover {
+        background: $light-blue;
+        color: $primary-blue;
+      }
+
+      &.p-highlight {
+        background: $primary-blue;
+        color: $white;
+      }
+    }
+  }
+}
+
+// Sidebar
+.p-sidebar {
+  background: $white;
+  box-shadow: $shadow-xl;
+
+  .p-sidebar-header {
+    padding: $spacing-lg;
+    border-bottom: 1px solid $border-gray;
+  }
+
+  .p-sidebar-content {
+    padding: $spacing-md;
+  }
+
+  .p-sidebar-close {
+    color: $gray;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-blue;
+      background: $light-blue;
+    }
+  }
+}
+
+// Divider
+.p-divider {
+  &.p-divider-horizontal {
+    margin: $spacing-lg 0;
+
+    &::before {
+      border-top-color: $border-gray;
+    }
+  }
+}
+
+// Error text
+small.p-error {
+  color: #ef4444;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+}
+
+// Ripple effect - DESACTIVADO COMPLETAMENTE
+.p-ripple {
+  overflow: hidden !important;
+
+  .p-ink {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+// Eliminar completamente el ripple de botones
+.p-button {
+  .p-ink,
+  [data-p-ink],
+  [data-p-ink-active],
+  span[role='presentation'] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+// Desactivar animación de ripple globalmente
+[data-pc-name='ripple'],
+[data-pc-section='root'][role='presentation'] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+// Ocultar todos los spans de presentación que PrimeVue crea
+span[role='presentation'] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+
+// Eliminar cualquier elemento con style inline que tenga width/height dinámicos
+.p-button span[style*='width'],
+.p-button span[style*='height'] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+
+// Prevenir cualquier elemento absoluto dentro de botones
+.p-button > span[style*='position: absolute'],
+.p-button > span[style*='position:absolute'] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+
+// Loading spinner
+.p-button-loading-icon {
+  &.pi-spin {
+    animation: p-icon-spin 1s linear infinite;
+  }
+}
+
+@keyframes p-icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Ocultar tooltips de debugging y tamaño en botones
+[role='tooltip'],
+.p-tooltip {
+  &[data-pc-section='tooltip'] {
+    display: none !important;
+  }
+}
+
+// Prevenir que aparezcan spans de debugging
+span[style*='position: absolute'][style*='pointer-events: none'] {
+  display: none !important;
+}
+
+// IMPORTANTE: Prevenir expansión de botones en todos los estados
+.p-button,
+button.p-button,
+a.p-button {
+  box-sizing: border-box !important;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &.p-focus {
+    flex: 0 0 auto !important;
+    flex-shrink: 0 !important;
+
+    .p-button-label,
+    .p-button-icon {
+      flex-shrink: 0 !important;
+    }
+  }
+
+  // Aplicar a estados específicos
+  &.p-button-primary,
+  &.p-button-secondary,
+  &.p-button-success,
+  &.p-button-outlined,
+  &.p-button-text {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      flex-shrink: 0 !important;
+      box-sizing: border-box !important;
+    }
+  }
+}
+
+// Específicamente para botones dentro de cards y forms
+.p-card .p-button,
+.contact-form .p-button,
+form .p-button {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    min-width: fit-content !important;
+  }
+}
+
+// RESPONSIVE STYLES
+// ====================================
+
+// Tablets y pantallas medianas (768px - 1024px)
+@media (max-width: $breakpoint-lg) {
+  .container {
+    padding-left: $spacing-lg !important;
+    padding-right: $spacing-lg !important;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+
+  .section-subtitle {
+    font-size: $font-size-base !important;
+  }
+
+  // Reducir tamaños de botones en tablets
+  .p-button {
+    padding: 0.65rem 1.25rem !important;
+    font-size: $font-size-sm !important;
+
+    &.p-button-lg {
+      padding: 0.85rem 1.75rem !important;
+      font-size: $font-size-base !important;
+    }
+  }
+}
+
+// Móviles grandes (576px - 768px)
+@media (max-width: $breakpoint-md) {
+  .container {
+    padding-left: $spacing-md !important;
+    padding-right: $spacing-md !important;
+  }
+
+  .section-header {
+    margin-bottom: $spacing-xl !important;
+  }
+
+  .section-badge {
+    font-size: 0.7rem !important;
+    padding: $spacing-xs $spacing-md !important;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+    margin-bottom: $spacing-sm !important;
+  }
+
+  .section-subtitle {
+    font-size: $font-size-sm !important;
+  }
+
+  // Cards en móvil
+  .p-card {
+    :deep(.p-card-body) {
+      padding: $spacing-md !important;
+    }
+
+    :deep(.p-card-title) {
+      font-size: $font-size-lg !important;
+    }
+
+    :deep(.p-card-content) {
+      font-size: $font-size-sm !important;
+    }
+  }
+
+  // Botones en móvil
+  .p-button {
+    padding: 0.6rem 1rem !important;
+    font-size: $font-size-sm !important;
+
+    &.p-button-lg {
+      padding: 0.75rem 1.5rem !important;
+      font-size: $font-size-base !important;
+    }
+
+    &.p-button-rounded {
+      width: 2.75rem !important;
+      height: 2.75rem !important;
+      padding: 0.6rem !important;
+    }
+  }
+
+  // Diálogos en móvil
+  .p-dialog {
+    width: 95vw !important;
+    max-width: 95vw !important;
+
+    .p-dialog-header {
+      padding: $spacing-lg $spacing-md !important;
+
+      .p-dialog-title {
+        font-size: $font-size-lg !important;
+      }
+    }
+
+    .p-dialog-content {
+      padding: $spacing-md !important;
+      max-height: 70vh !important;
+    }
+
+    .p-dialog-footer {
+      padding: $spacing-md !important;
+      flex-direction: column !important;
+
+      .p-button {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+    }
+  }
+}
+
+// Móviles pequeños (< 576px)
+@media (max-width: $breakpoint-sm) {
+  .container {
+    padding-left: $spacing-sm !important;
+    padding-right: $spacing-sm !important;
+  }
+
+  .section-header {
+    margin-bottom: $spacing-lg !important;
+  }
+
+  .section-badge {
+    font-size: 0.65rem !important;
+    padding: 0.35rem $spacing-sm !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .section-title {
+    font-size: 1.5rem !important;
+    margin-bottom: $spacing-sm !important;
+    line-height: 1.3 !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.875rem !important;
+    line-height: 1.6 !important;
+  }
+
+  // Cards muy compactas en móvil pequeño
+  .p-card {
+    :deep(.p-card-body) {
+      padding: $spacing-sm !important;
+    }
+
+    :deep(.p-card-header) {
+      padding: $spacing-sm !important;
+    }
+
+    :deep(.p-card-title) {
+      font-size: $font-size-base !important;
+      margin-bottom: $spacing-xs !important;
+    }
+
+    :deep(.p-card-content) {
+      font-size: 0.875rem !important;
+    }
+
+    :deep(.p-card-footer) {
+      padding: $spacing-sm !important;
+    }
+  }
+
+  // Inputs y formularios en móvil
+  .p-inputtext,
+  .p-inputtextarea,
+  .p-dropdown {
+    font-size: $font-size-sm !important;
+    padding: $spacing-xs $spacing-sm !important;
+  }
+
+  // Botones muy compactos en móvil pequeño
+  .p-button {
+    padding: 0.5rem 0.875rem !important;
+    font-size: 0.875rem !important;
+
+    &.p-button-lg {
+      padding: 0.65rem 1.25rem !important;
+      font-size: $font-size-sm !important;
+    }
+
+    &.p-button-rounded {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      padding: 0.5rem !important;
+    }
+
+    &.p-button-icon-only {
+      padding: 0.5rem !important;
+    }
+  }
+
+  // Sidebar en móvil pequeño
+  .p-sidebar {
+    width: 85vw !important;
+    max-width: 280px !important;
+
+    .p-sidebar-header {
+      padding: $spacing-md !important;
+    }
+
+    .p-sidebar-content {
+      padding: $spacing-sm !important;
+    }
+  }
+
+  // Diálogos en móvil pequeño
+  .p-dialog {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    margin: $spacing-xs !important;
+
+    .p-dialog-header {
+      padding: $spacing-md $spacing-sm !important;
+
+      .p-dialog-title {
+        font-size: $font-size-base !important;
+      }
+
+      .p-dialog-header-icon,
+      .p-dialog-header-close {
+        width: 2rem !important;
+        height: 2rem !important;
+      }
+    }
+
+    .p-dialog-content {
+      padding: $spacing-sm !important;
+      max-height: 65vh !important;
+    }
+
+    .p-dialog-footer {
+      padding: $spacing-sm !important;
+      gap: $spacing-xs !important;
+
+      .p-button {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: $spacing-sm $spacing-md !important;
+      }
+    }
+  }
+
+  // Dividers más delgados
+  .p-divider {
+    &.p-divider-horizontal {
+      margin: $spacing-md 0 !important;
+    }
+  }
+}
+
+// Select nativo con estilos de PrimeVue
+select.p-inputtext {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 3rem;
+  cursor: pointer;
+  background-color: $white;
+}
+
+// Dialog
+.p-dialog {
+  border-radius: $border-radius-xl !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  background: $white !important;
+
+  .p-dialog-header {
+    padding: $spacing-xl $spacing-xxl $spacing-xl $spacing-xl !important;
+    background: linear-gradient(135deg, $primary-blue 0%, $dark-blue 100%) !important;
+    border-bottom: none !important;
+    border-radius: $border-radius-xl $border-radius-xl 0 0 !important;
+    position: relative !important;
+
+    .p-dialog-title {
+      font-weight: 700 !important;
+      color: $white !important;
+      font-size: $font-size-xl !important;
+      padding-right: 2rem !important;
+    }
+
+    .p-dialog-header-icon,
+    .p-dialog-header-close {
+      color: $primary-blue !important;
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      position: absolute !important;
+      right: 1rem !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      border-radius: 50% !important;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+      }
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+  }
+
+  .p-dialog-content {
+    padding: $spacing-xl !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+    background: $white !important;
+  }
+
+  .p-dialog-footer {
+    padding: $spacing-lg $spacing-xl !important;
+    border-top: 1px solid $border-gray !important;
+    background: $light-gray !important;
+    border-radius: 0 0 $border-radius-xl $border-radius-xl !important;
+    display: flex !important;
+    gap: $spacing-md !important;
+    justify-content: flex-end !important;
+
+    .p-button {
+      min-width: 140px !important;
+      width: auto !important;
+
+      &:active {
+        min-width: 140px !important;
+        width: auto !important;
+      }
+    }
+  }
+}
+
+.p-dialog-mask {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+// Scrollbar para el dialog
+.p-dialog-content {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $light-gray;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $primary-blue;
+    border-radius: $border-radius;
+
+    &:hover {
+      background: $dark-blue;
+    }
+  }
+}
