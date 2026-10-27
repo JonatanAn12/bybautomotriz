@@ -7,16 +7,19 @@
   RewriteBase /
 
   # Force HTTPS (cuando esté en producción)
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Redirect www to non-www (o viceversa, según preferencia)
-  # RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-  # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  # Redirect www to non-www (IMPORTANTE)
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://$1/$1 [R=301,L]
 
   # Handle Vue Router - redirect all requests to index.html
+  # EXCEPT sitemap.xml, robots.txt, and actual files
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+  RewriteCond %{REQUEST_URI} !^/robots\.txt$
   RewriteRule . /index.html [L]
 </IfModule>
 
